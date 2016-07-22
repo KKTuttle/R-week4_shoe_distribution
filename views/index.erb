@@ -16,7 +16,6 @@
       <ul>
         <% @stores.each() do |store| %>
         <li><a href= '/store/<%=store.id() %>'><%= store.name()%>  </a><a href="/stores/<%= store.id() %>/edit">Edit</a></li>
-
         <% end %>
       </ul>
     <% else %>
@@ -25,10 +24,3 @@
 
   </div>
 </div>
-
-
-<a href="/">Return Home</a>
-
-
-<!-- <a href="/stores">View list of all stores</a> -->
-<!-- <a href="/brands">View list of all brands</a> -->

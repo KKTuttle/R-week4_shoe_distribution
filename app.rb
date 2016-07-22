@@ -55,8 +55,18 @@ post('/store/:id') do
   @store = Store.find(store_id)
   @store.brands.create({:name => name})
   if @brand.save()
-    erb(:store)
+    redirect to("/store/#{@store.id()}")
   else
     erb(:error_brand)
   end
+end
+
+get("/clear") do
+  Brand.all().each() do |brand|
+    brand.destroy()
+  end
+  Store.all().each() do |store|
+    store.destroy()
+  end
+  redirect("/")
 end
