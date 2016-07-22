@@ -5,12 +5,10 @@
   <input type="hidden" name="store_id" value="<%=@store.id()%>">
   <label for="brand_name">What is the brand name?</label>
   <input type="text" name="brand_name" id='brand_name'>
-  <button type="submit" name="button">Add new brand</button>
+  <button type="submit" name="button" class= 'btn btn-info'>Add new brand</button>
 </form>
 
-
 <h3>All saved shoe brands</h3>
-
   <% if @store.brands.any?() %>
     <ul>
       <% @store.brands.each() do |brand| %>

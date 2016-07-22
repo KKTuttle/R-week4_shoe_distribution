@@ -25,18 +25,15 @@ get('/stores/:id/edit') do
   @stores = Store.all()
   erb(:store_edit)
 end
-
+# RENAMING A STORE
 patch('/stores/:id/name') do
   @store = Store.find(params.fetch('id').to_i())
   name = params.fetch('new_name')
   @store = @store.update({:name => name})
-  # without this list of all save stores won't be showing if I redirectto this page
-
-  # redirect to ("/stores/#{@store.id()}/edit")
   @stores = Store.all()
   erb(:index)
 end
-
+# DELETING A STORE
 delete('/stores/:id') do
   @store = Store.find(params.fetch('id').to_i())
   @store.destroy()
@@ -47,7 +44,7 @@ get('/store/:id') do
   @store = Store.find(params.fetch('id').to_i())
   erb(:store)
 end
-
+# ADDING A BRAND TO A STORE
 post('/store/:id') do
   name = params.fetch('brand_name')
   store_id = params.fetch('store_id').to_i()

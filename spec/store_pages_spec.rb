@@ -3,7 +3,6 @@ require('./app')
 Capybara.app = Sinatra::Application
 set(:show_exceptions, false)
 
-
 describe('adding a new store', {:type => :feature}) do
   it "allows user to add a new store" do
     visit('/')
@@ -23,8 +22,6 @@ describe('viewing list of all saved stores', {:type => :feature}) do
     expect(page).to have_content('Store')
   end
 end
-
-
 
 describe('renaming a saved store', {:type => :feature}) do
   it "allows user to rename already saved store" do
