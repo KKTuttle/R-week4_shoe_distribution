@@ -13,8 +13,8 @@ describe(Store) do
 
   describe("#capitalize_name") do
     it "capitalizes first letter of name" do
-      store = Store.create({:name => "topanky"})
-      expect(store.name()).to(eq("Topanky"))
+      store = Store.create({:name => "obuvnictvo"})
+      expect(store.name()).to(eq("Obuvnictvo"))
     end
   end
 
