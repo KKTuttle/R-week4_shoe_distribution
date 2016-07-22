@@ -3,11 +3,11 @@
 <div class="row">
 <!--First Column  -->
   <div class="col-sm-3">
-    <h3>Listed Stores</h3>
+    <h3>All Listed Stores</h3>
     <% if @stores.any? %>
       <ul>
         <% @stores.each() do |store| %>
-        <li><a href= '/stores/<%= store.id() %>'><%= store.name()%></a></li>
+        <li><a href='/stores/<%= store.id() %>'><%= store.name()%></a></li>
 
         <% end %>
       </ul>
@@ -17,12 +17,12 @@
   </div>
 <!--Second Column  -->
   <div class="col-sm-9">
-    <form class ='form-group' action="/stores/ <%= @store.id() %>/name" method="post">
+    <form class ='form-group' action="/stores/<%= @store.id() %>/name" method="post">
       <input type="hidden" name="_method" value="patch">
       <!-- <input type="hidden" name="store_id" value="<%= @store.id()%>"> -->
 
       <label for="new_name">New name for "<%= @store.name() %>"</label>
-      <input type="text" name="new_name" >
+      <input type="text" name="new_name" id = 'new_name'>
       <button type="submit" name="button">Change Name</button>
     </form>
 

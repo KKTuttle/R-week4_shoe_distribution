@@ -9,6 +9,30 @@ describe('adding a new store', {:type => :feature}) do
     fill_in('name', :with => 'obchod')
     click_button('Add new store')
     expect(page). to have_content("Obchod")
+  end
+end
+
+describe('renaming a saved store', {:type => :feature}) do
+  it "allows user to rename already saved store" do
+    store = Store.new(:name => 'Obchod', :id => nil)
+    store.save()
+    visit('/')
+    click_link('Edit')
+    fill_in('new_name', :with => 'Store')
+    click_button('Change Name')
+    expect(page). to have_content("Store")
+  end
+
+end
+
+describe('deleting a store', {:type => :feature}) do
+  it "allows user to delete a saved store" do
+    store = Store.new(:name => 'Obchod', :id => nil)
+    store.save()
+    visit('/')
+    click_link('Edit')
+    click_button('Delete Obchod')
+    expect(page).to have_no_content('Obchod')
 
   end
 end
