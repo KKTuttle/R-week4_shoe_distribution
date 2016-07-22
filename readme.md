@@ -1,6 +1,6 @@
 # Shoe Distribution
 
-#### Add stylists and clients to a hair salon database
+#### Program that keeps track of shoe brands in shoe stores
 
 #### By Katarina Tuttle
 
