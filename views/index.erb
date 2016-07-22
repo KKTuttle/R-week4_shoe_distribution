@@ -15,7 +15,7 @@
     <% if @stores.any? %>
       <ul>
         <% @stores.each() do |store| %>
-        <li><a href= '/stores/<%=store.id() %>'><%= store.name()%>  </a><a href="/stores/<%= store.id() %>/edit">Edit</a></li>
+        <li><a href= '/store/<%=store.id() %>'><%= store.name()%>  </a><a href="/stores/<%= store.id() %>/edit">Edit</a></li>
 
         <% end %>
       </ul>
