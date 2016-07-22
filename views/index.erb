@@ -1,0 +1,34 @@
+<h2>Welcome to Shoe Distribution</h2>
+
+<form class="form-group" action="/stores" method="post">
+  <h4>Add a new store below</h4>
+  <label for="name">What is the store name?</label>
+  <input type="text" name="name" value="" id='name'>
+  <button type="submit" name="button">Add new store</button>
+</form>
+
+  <hr>
+
+<div class="row">
+  <div class="col-sm-3">
+    <h3>Listed Stores</h3>
+    <% if @stores.any? %>
+      <ul>
+        <% @stores.each() do |store| %>
+        <li><a href= '/stores/<%=store.id() %>'><%= store.name()%>  </a><a href="/stores/<%= store.id() %>/edit">Edit</a></li>
+
+        <% end %>
+      </ul>
+    <% else %>
+    <p>There are no stores yet.</p>
+    <% end %>
+
+  </div>
+</div>
+
+
+<a href="/">Return Home</a>
+
+
+<!-- <a href="/stores">View list of all stores</a> -->
+<!-- <a href="/brands">View list of all brands</a> -->
