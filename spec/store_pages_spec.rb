@@ -9,7 +9,7 @@ describe('adding a new store', {:type => :feature}) do
     visit('/')
     fill_in('name', :with => 'obchod')
     click_button('Add new store')
-    expect(page).to have_content("Obchod")
+    expect(page).to have_content('Obchod')
   end
 end
 
@@ -20,7 +20,7 @@ describe('viewing list of all saved stores', {:type => :feature}) do
     click_button('Add new store')
     fill_in('name', :with => 'Store')
     click_button('Add new store')
-    expect(page).to have_content("Store")
+    expect(page).to have_content('Store')
   end
 end
 
@@ -34,7 +34,7 @@ describe('renaming a saved store', {:type => :feature}) do
     click_link('Edit')
     fill_in('new_name', :with => 'Store')
     click_button('Change Name')
-    expect(page).to have_content("Store")
+    expect(page).to have_content('Store')
   end
 
 end
