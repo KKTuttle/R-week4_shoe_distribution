@@ -33,7 +33,6 @@ describe('renaming a saved store', {:type => :feature}) do
     click_button('Change Name')
     expect(page).to have_content('Store')
   end
-
 end
 
 describe('deleting a store', {:type => :feature}) do

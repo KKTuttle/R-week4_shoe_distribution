@@ -72,6 +72,7 @@ patch('/stores/:id/name') do
   name = params.fetch('new_name')
   @store = @store.update({:name => name})
   @stores = Store.all()
+  @brands = Brand.all()
   erb(:index)
 end
 # DELETING A STORE
