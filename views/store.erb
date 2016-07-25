@@ -5,9 +5,9 @@
     <input type="hidden" name="store_id" value="<%=@store.id()%>">
     <label for="brand_id">Select the brand</label>
       <select id='brand_id' name='brand_id' type='text'>
-        <% @brands.each { |brand| %>
+        <% @brands.each do |brand| %>
           <option value="<%= brand.id %>"> <%= brand.name %></option>
-        <% } %>
+        <% end %>
       </select>
     <button type="submit">Add Brand</button>
   </form>
@@ -16,9 +16,9 @@
 <h3>Brands that carry <%= @store.name %> store:</h3>
   <% if @store.brands.any? %>
     <ul>
-      <% @store.brands.each { |brand| %>
+      <% @store.brands.each do |brand| %>
         <li><a href='/brand/<%= brand.id() %>'><%= brand.name %></a></li>
-      <% } %>
+      <% end %>
     </ul>
   <% else %>
     <p>This store does not carry any brand yet.</p>
