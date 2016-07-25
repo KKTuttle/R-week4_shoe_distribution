@@ -1,0 +1,27 @@
+<h2>Welcome to <%= @brand.name() %> page</h2>
+
+<% if @stores.any? %>
+  <form class="form-group" action="/brand/<%= @brand.id()%>/store" method="post">
+    <input type="hidden" name="brand_id" value="<%=@brand.id()%>">
+    <label for="store_id">Select the store</label>
+      <select id='store_id' name='store_id' type='text'>
+        <% @stores.each { |store| %>
+          <option value="<%= store.id %>"> <%= store.name %></option>
+        <% } %>
+      </select>
+    <button type="submit">Add Store</button>
+  </form>
+<% end %>
+
+<h3>Stores that carry <%= @brand.name %> brand:</h3>
+ <% if @brand.stores.any? %>
+   <ul>
+     <% @brand.stores.each { |store| %>
+       <li><a href='/store/<%= store.id() %>'><%= store.name %></a></li>
+     <% } %>
+   </ul>
+ <% else %>
+   <p>This brand is not carried at any stores.</p>
+ <% end %>
+
+<a href="/">Return Home</a>
