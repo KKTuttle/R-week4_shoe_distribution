@@ -8,9 +8,16 @@ get('/') do
   erb(:index)
 end
 # ADDING STORE
+
+get('/stores') do
+    @stores = Store.all()
+    erb :form_store
+end
+
 post('/stores') do
   name = params.fetch('name')
-  @store = Store.new({:name => name, :id => nil})
+  image = params.fetch('store_image')
+  @store = Store.new({:name => name, :image => image, :id => nil})
   @stores = Store.all()
   if @store.save()
     redirect to("/")
@@ -18,10 +25,17 @@ post('/stores') do
     erb(:error_store)
   end
 end
+
+get('/brands') do
+  @brands = Brand.all()
+    erb :form_brand
+end
+
 # ADDING BRAND
 post('/brands') do
   name = params.fetch('brand_name')
-  @brand = Brand.new({:name => name, :id => nil})
+  logo = params.fetch('brand_logo')
+  @brand = Brand.new({:name => name, :logo=> logo, :id => nil})
   @brands = Brand.all()
   if @brand.save()
     redirect to("/")

@@ -1,4 +1,6 @@
 <h2>Welcome to <%= @brand.name() %> page</h2>
+<img src="<%= @brand.logo() %>" alt="" />
+
 
 <% if @stores.any? %>
   <form class="form-group" action="/brand/<%= @brand.id()%>/store" method="post">
@@ -24,4 +26,14 @@
    <p>This brand is not carried at any stores.</p>
  <% end %>
 
+
+<% if @brand.stores.any? %>
+   <div class="content">
+     <div class="brandList">
+       <% @brand.stores.each do |store| %>
+         <img src="<%= store.image() %>" alt="" />
+       <% end %>
+     </div>
+   </div>
+ <% end %>
 <a href="/">Return Home</a>

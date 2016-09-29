@@ -1,0 +1,12 @@
+.brandList {
+  display: flex;
+  flex-wrap:wrap;
+}
+
+.content {
+  display: flex;
+}
+
+body {
+  background: url("../img/shoe1.jpg") no-repeat fixed center;
+}
